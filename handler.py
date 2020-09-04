@@ -49,4 +49,3 @@ if __name__ == '__main__':
     name = '283'
     id_ob = api_wialon_dwnObj(name)
     api_wialon_reg_fuel(id_ob, 1596626280, 20)
-    pprint(id_ob)

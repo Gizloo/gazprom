@@ -9,8 +9,14 @@ x1 = pd.ExcelFile(file)
 df1 = x1.parse('Sheet1')
 df_range = len(df1)
 
-for i in range(2):
-    date, time_f = df1["Дата и время"][i].split('   ')
+for i in range(df_range):
+    try:
+        date, time_f = df1["Дата и время"][i].split('   ')
+    except:
+        try:
+            date, time_f = df1["Дата и время"][i].split('  ')
+        except:
+            date, time_f = df1["Дата и время"][i].split(' ')
     d, m, y = date.split('.')
     h, min = time_f.split(':')
     time_fuel = datetime.datetime(year=int('20'+y), month=int(m), day=int(d), hour=int(h), minute=int(min), second=0)
